@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Numerics;
+using SupplierHub.Constants; // Import your enum namespace
 
 namespace SupplierHub.Models
 {
@@ -28,9 +26,6 @@ namespace SupplierHub.Models
 		public DateTimeOffset? NeededByDate { get; set; }
 
 		[Required]
-		[StringLength(20)]
-		public string Status { get; set; } = "Draft"; // Default as per your schema
-
-		
+		public RequisitionStatus Status { get; set; } = RequisitionStatus.Draft;
 	}
 }
