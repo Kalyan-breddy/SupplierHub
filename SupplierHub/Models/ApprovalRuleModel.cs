@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using SupplierHub.Constants.Enum;
 namespace SupplierHub.Models
 {
 	public class ApprovalRuleModel
@@ -12,7 +12,7 @@ namespace SupplierHub.Models
 		[Column(TypeName ="nvarchar(max)")]
 		public string? ExpressionJSON { get; set; }
 		[Column(TypeName ="nvarchar(20)")]
-		public string? Severity { get; set; }
+		public RuleSeverity Severity { get; set; }
 
 		public bool? Status { get; set; } = false;
 	}
