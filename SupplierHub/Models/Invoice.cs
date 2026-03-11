@@ -42,6 +42,7 @@ namespace SupplierHub.Models
 		[Column("status")]
 		[StringLength(30)]
 		public InvoiceStatus Status { get; set; } = InvoiceStatus.Submitted;
+		public bool IsDeleted { get; set; }
 
 		[Column("createdon")]
 		public DateTime CreatedOn { get; set; } = DateTime.Now;

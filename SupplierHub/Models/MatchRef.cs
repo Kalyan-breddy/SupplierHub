@@ -33,6 +33,7 @@ namespace SupplierHub.Models
 		[Column("status")]
 		[StringLength(30)]
 		public MatchStatus Status { get; set; } = MatchStatus.Active;
+		public bool IsDeleted { get; set; }
 
 		[Column("createdon")]
 		public DateTime CreatedOn { get; set; } = DateTime.Now;
