@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using SupplierHub.Constants.Enum;
 using SupplierHub.Models;
-using SupplierHub.Models.IAM;
+
 namespace SupplierHub.Models
 {
 	public class RFxEvent
@@ -38,6 +38,8 @@ namespace SupplierHub.Models
 		[Required]
 		[StringLength(20)]
 		public RFxStatus Status { get; set; }
+
+		public bool IsDeleted { get; set; } = false;
 
 		public Award Award { get; set; }
 		public virtual ICollection<RFxLine> RFxLines { get; set; }

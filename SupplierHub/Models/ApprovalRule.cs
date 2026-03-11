@@ -19,6 +19,7 @@ namespace SupplierHub.Models
 		public RuleSeverity Severity { get; set; }
 
 		[Required]
-		public bool Status { get; set; } // default handled in config
+		public bool Status { get; set; }
+		public bool IsDeleted { get; set; }=false;
 	}
 }

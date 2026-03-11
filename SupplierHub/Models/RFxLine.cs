@@ -31,6 +31,8 @@ namespace SupplierHub.Models
 
 		public string Notes { get; set; }
 
+		public bool IsDeleted { get; set; } = false;
+
 		public ICollection<BidLine> BidLines { get; set; }
 
 	}

@@ -28,7 +28,9 @@ namespace SupplierHub.Models
 		public string Currency { get; set; } 
 
 		[StringLength(20)]
-		public BidStatus Status { get; set; } 
+		public BidStatus Status { get; set; }
+
+		public bool IsDeleted { get; set; } = false;
 
 		public virtual ICollection<BidLine> BidLines { get; set; }
 	}

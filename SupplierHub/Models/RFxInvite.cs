@@ -23,6 +23,8 @@ namespace SupplierHub.Models
 		public DateTime InvitedDate { get; set; } = DateTime.Now;
 
 		[StringLength(20)]
-		public InviteStatus Status { get; set; } 
+		public InviteStatus Status { get; set; }
+
+		public bool IsDeleted { get; set; } = false;
 	}
 }

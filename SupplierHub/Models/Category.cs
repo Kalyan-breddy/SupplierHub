@@ -23,13 +23,12 @@ namespace SupplierHub.Models
 
 		public DateTime? UpdatedOn { get; set; }
 
-		public bool IsDeleted { get; set; }  // default -> false
-
 		// Navigation
 		[ForeignKey(nameof(ParentCategoryId))]
 		public virtual Category? ParentCategory { get; set; }
 
 		public virtual ICollection<Category> SubCategories { get; set; }
 		public virtual ICollection<Item> Items { get; set; }
+		public virtual ICollection<RFxEvent> Events { get; set; }
 	}
 }

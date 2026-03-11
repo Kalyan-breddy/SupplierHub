@@ -26,5 +26,7 @@ namespace SupplierHub.Models
 		public string Notes { get; set; }
 
 		public string Status { get; set; }
+
+		public bool IsDeleted { get; set; } = false;
 	}
 }
