@@ -9,8 +9,9 @@ namespace SupplierHub.Config.Configurations
 		public void Configure(EntityTypeBuilder<GRNItemRef> builder)
 		{
 			builder.ToTable("grn_item_ref");
-
-			builder.Property(x => x.ReceivedQty).HasColumnType("decimal(18,2)");
+        NEW: IsDeleted default
+builder.Property(x => x.IsDeleted).IsRequired().HasDefaultValue(false);
+            builder.Property(x => x.ReceivedQty).HasColumnType("decimal(18,2)");
 			builder.Property(x => x.AcceptedQty).HasColumnType("decimal(18,2)");
 			builder.Property(x => x.RejectedQty).HasColumnType("decimal(18,2)");
 			builder.Property(x => x.Reason).HasMaxLength(200);
@@ -24,6 +25,7 @@ namespace SupplierHub.Config.Configurations
 			// Indexes
 			builder.HasIndex(x => x.GRNID).HasDatabaseName("idx_grnitem_grn");
 			builder.HasIndex(x => x.POLineID).HasDatabaseName("idx_grnitem_poline");
-		}
+            builder.HasIndex(x => x.IsDeleted).HasDatabaseName("idx_contract_isdeleted");
+        }
 	}
 }

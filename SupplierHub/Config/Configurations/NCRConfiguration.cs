@@ -9,8 +9,9 @@ namespace SupplierHub.Config.Configurations
 		public void Configure(EntityTypeBuilder<NCR> builder)
 		{
 			builder.ToTable("ncr");
-
-			builder.Property(x => x.DefectType).IsRequired().HasMaxLength(100);
+        NEW: IsDeleted default
+builder.Property(x => x.IsDeleted).IsRequired().HasDefaultValue(false);
+            builder.Property(x => x.DefectType).IsRequired().HasMaxLength(100);
 			builder.Property(x => x.Severity).IsRequired().HasMaxLength(20);
 			builder.Property(x => x.Disposition).IsRequired().HasMaxLength(20);
 			builder.Property(x => x.Notes).HasMaxLength(500);
@@ -27,6 +28,7 @@ namespace SupplierHub.Config.Configurations
 			builder.HasIndex(x => x.GRNItemID).HasDatabaseName("idx_ncr_grnitem");
 			builder.HasIndex(x => x.Status).HasDatabaseName("idx_ncr_status");
 			builder.HasIndex(x => x.Severity).HasDatabaseName("idx_ncr_severity");
-		}
+            builder.HasIndex(x => x.IsDeleted).HasDatabaseName("idx_contract_isdeleted");
+        }
 	}
 }

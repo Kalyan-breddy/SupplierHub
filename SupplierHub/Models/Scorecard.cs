@@ -21,5 +21,6 @@ namespace SupplierHub.Models
 
 		[MaxLength(500)]
 		public string? Notes { get; set; }
-	}
+        public bool IsDeleted { get; set; }  // default -> false
+    }
 }

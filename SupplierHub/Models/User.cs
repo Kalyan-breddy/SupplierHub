@@ -28,6 +28,7 @@ namespace SupplierHub.Models
 		[Column("phone")]
 		public string? Phone { get; set; }
 
+
 		[MaxLength(255)]
 		[Column("password_hash")]
 		public string? PasswordHash { get; set; }
@@ -36,11 +37,22 @@ namespace SupplierHub.Models
 		[Column("status")]
 		public UserTableStatus Status { get; set; } = UserTableStatus.Active;
 
+		
+
+
 		[Column("createdon")]
 		public DateTime CreatedOn { get; set; }
+
 
 		[Column("updatedon")]
 		public DateTime UpdatedOn { get; set; }
 		public bool IsDeleted { get; set; }
+
+	
+
+		public ICollection<RFxEvent> Events { get; set; }
+
+		public ICollection<SystemConfig> systemConfigs { get; set; }
+
 	}
 }

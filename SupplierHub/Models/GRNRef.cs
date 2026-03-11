@@ -25,5 +25,6 @@ namespace SupplierHub.Models
 
 		// Navigation
 		public virtual ICollection<GRNItemRef> Items { get; set; }
-	}
+        public bool IsDeleted { get; set; }  // default -> false
+    }
 }

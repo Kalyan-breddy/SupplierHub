@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SupplierHub.Models;
+using SupplierHub.Constants.Enum;
 
 namespace SupplierHub.Config.Configurations
 {
@@ -10,8 +11,14 @@ namespace SupplierHub.Config.Configurations
 		{
 			builder.ToTable("user");
 
+
 			builder.HasKey(x => x.AppUserId)
 				   .HasName("pk_user");
+
+			builder.Property(x => x.Name).IsRequired().HasMaxLength(120);
+			builder.Property(x => x.Email).IsRequired().HasMaxLength(120);
+			builder.Property(x => x.Name).IsRequired().HasMaxLength(60);
+
 
 			builder.Property(x => x.OrgId)
 				   .IsRequired();
@@ -51,6 +58,7 @@ namespace SupplierHub.Config.Configurations
 				   .IsUnique()
 				   .HasDatabaseName("uq_user_email");
 
+			builder.HasIndex(x => x.Name).IsUnique().HasDatabaseName("uq_users_username");
 			builder.HasIndex(x => x.OrgId)
 				   .HasDatabaseName("idx_user_org");
 
@@ -63,6 +71,9 @@ namespace SupplierHub.Config.Configurations
 			//        .WithMany()
 			//        .HasForeignKey(x => x.OrgId)
 			//        .HasConstraintName("fk_user_organization");
+
+			// Indexes (at the end)
+
 		}
 	}
 }
