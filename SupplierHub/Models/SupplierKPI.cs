@@ -35,5 +35,6 @@ namespace SupplierHub.Models
 
 		[Required]
 		public DateTime GeneratedDate { get; set; }
-	}
+        public bool IsDeleted { get; set; }  // default -> false
+    }
 }

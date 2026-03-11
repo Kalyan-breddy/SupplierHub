@@ -30,5 +30,6 @@ namespace SupplierHub.Models
 		// Navigation
 		[ForeignKey(nameof(GRNItemID))]
 		public virtual GRNItemRef GRNItem { get; set; }
-	}
+        public bool IsDeleted { get; set; }  // default -> false
+    }
 }

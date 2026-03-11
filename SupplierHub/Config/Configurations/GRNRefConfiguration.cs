@@ -9,8 +9,10 @@ namespace SupplierHub.Config.Configurations
 		public void Configure(EntityTypeBuilder<GRNRef> builder)
 		{
 			builder.ToTable("grn_ref");
+        NEW: IsDeleted default
+builder.Property(x => x.IsDeleted).IsRequired().HasDefaultValue(false);
 
-			builder.Property(x => x.ReceivedBy).IsRequired().HasMaxLength(150);
+            builder.Property(x => x.ReceivedBy).IsRequired().HasMaxLength(150);
 			builder.Property(x => x.Status).IsRequired().HasMaxLength(20)
 				   .HasDefaultValue("Open");
 
@@ -22,6 +24,7 @@ namespace SupplierHub.Config.Configurations
 			builder.HasIndex(x => x.ASNID).HasDatabaseName("idx_grn_asn");
 			builder.HasIndex(x => x.ReceivedDate).HasDatabaseName("idx_grn_receiveddate");
 			builder.HasIndex(x => x.Status).HasDatabaseName("idx_grn_status");
-		}
+            builder.HasIndex(x => x.IsDeleted).HasDatabaseName("idx_contract_isdeleted");
+        }
 	}
 }

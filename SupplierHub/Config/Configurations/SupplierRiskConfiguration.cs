@@ -9,8 +9,10 @@ namespace SupplierHub.Config.Configurations
 		public void Configure(EntityTypeBuilder<SupplierRisk> builder)
 		{
 			builder.ToTable("supplier_risk");
+        NEW: IsDeleted default
+builder.Property(x => x.IsDeleted).IsRequired().HasDefaultValue(false);
 
-			builder.Property(x => x.RiskType).IsRequired().HasMaxLength(50);
+            builder.Property(x => x.RiskType).IsRequired().HasMaxLength(50);
 			builder.Property(x => x.Score).HasColumnType("decimal(5,2)");
 			builder.Property(x => x.Notes).HasMaxLength(500);
 

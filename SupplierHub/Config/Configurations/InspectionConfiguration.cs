@@ -9,8 +9,10 @@ namespace SupplierHub.Config.Configurations
 		public void Configure(EntityTypeBuilder<Inspection> builder)
 		{
 			builder.ToTable("inspection");
+        NEW: IsDeleted default
+builder.Property(x => x.IsDeleted).IsRequired().HasDefaultValue(false);
 
-			builder.Property(x => x.Result).IsRequired().HasMaxLength(10);
+            builder.Property(x => x.Result).IsRequired().HasMaxLength(10);
 
 			builder.Property(x => x.InspDate)
 				   .IsRequired()
@@ -25,6 +27,7 @@ namespace SupplierHub.Config.Configurations
 			// Indexes
 			builder.HasIndex(x => x.GRNItemID).HasDatabaseName("idx_inspection_grnitem");
 			builder.HasIndex(x => x.InspDate).HasDatabaseName("idx_inspection_date");
-		}
+            builder.HasIndex(x => x.IsDeleted).HasDatabaseName("idx_contract_isdeleted");
+        }
 	}
 }
