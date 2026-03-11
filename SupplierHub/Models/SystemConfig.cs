@@ -19,5 +19,7 @@ namespace SupplierHub.Models
 		public User? LastEditor { get; set; }
 		public DateTime UpdatedDate { get; set; }
 
+		public bool IsDeleted { get; set; } = false;
+
 	}
 }

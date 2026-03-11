@@ -29,5 +29,6 @@ namespace SupplierHub.Models
 
 		public virtual ICollection<Category> SubCategories { get; set; }
 		public virtual ICollection<Item> Items { get; set; }
+		public virtual ICollection<RFxEvent> Events { get; set; }
 	}
 }

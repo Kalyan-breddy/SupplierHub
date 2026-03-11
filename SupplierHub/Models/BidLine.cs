@@ -23,5 +23,7 @@ namespace SupplierHub.Models
 		public int LeadTimeDays { get; set; }
 
 		public string Notes { get; set; }
+
+		public bool IsDeleted { get; set; } = false;
 	}
 }
