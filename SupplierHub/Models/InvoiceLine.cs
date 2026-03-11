@@ -41,6 +41,7 @@ namespace SupplierHub.Models
 		public MatchStatus MatchStatus { get; set; }
 
 		[Column("createdon")]
+		public bool IsDeleted { get; set; }
 		public DateTime CreatedOn { get; set; } = DateTime.Now;
 
 		[Column("updatedon")]
